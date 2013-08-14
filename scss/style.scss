@@ -1,0 +1,185 @@
+@import 'normalize';
+@import 'font-awesome';
+
+/*------------------------------------------------------------------------------------------------------------
+    $VARIABLES + MIXINS
+  ------------------------------------------------------------------------------------------------------------*/
+
+@mixin normal-font {
+  font-family: "museo-sans",sans-serif;
+  font-style: normal;
+  font-weight: 100;
+}
+@mixin normal-fontItalic {
+  font-family: "museo-sans",sans-serif;
+  font-style: italic;
+  font-weight: 100;
+}
+@mixin medium-font {
+  font-family: "museo-sans",sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+$red:       #ee3c21;
+$white:     #fff;
+$linkred:   #ee3a29;
+  
+/*------------------------------------------------------------------------------------------------------------
+    $MAIN STYLES
+  ------------------------------------------------------------------------------------------------------------*/
+body            {@include normal-font;}
+h1, h2, h3,
+h4, h5, h6, p, 
+li, a           {color: $white;}
+a:link,
+a:visited       {text-decoration: none; color: $white;}
+a:hover,
+a:active,
+a:focus         {}
+h3 a:link,
+h3 a:visited    {text-decoration: underline; color: $linkred; @include medium-font; font-size: 18px;}
+h3 a:hover,
+h3 a:active,
+h3 a:focus      {text-decoration: none;}
+strong          {font-weight: 700;}
+ul              {list-style: none;}
+li              {display: inline;}
+.clear 					{ font-size:0em; line-height:0em; height:0px; position:relative; clear:both;}
+sup							{font-size:50%; vertical-align:top; position:relative; top:5px;}
+
+/* clear float, modern browsers */
+.cf:before,
+.cf:after {
+  content:""; display:table;}
+
+.cf:after {
+  clear:both;}
+
+/* clear float, IE 6/7 (triggers hasLayout) */
+.cf {
+  *zoom:1;}
+
+
+  
+  
+/*------------------------------------------------------------------------------------------------------------
+    $HEADER
+  ------------------------------------------------------------------------------------------------------------*/
+#topnav {
+  width: 100%; height: 65px; position: fixed; background: $red; z-index: 100;
+}
+#topnav ul {
+  position: relative; top:18px; width: 100%;
+  text-align: center;
+}
+#topnav li {
+  text-transform: capitalize; font-size: 17px;
+  margin-right:18px; vertical-align: top; padding-top:20px;
+}
+#topnav li img {
+  margin-top:-27px;
+}
+.indicator {
+  position: relative;
+  top:-32px;
+  width: 350px;
+  margin:0 auto;
+}
+.icon-caret-down {
+  color: $red; 
+  position: relative;  
+  font-size: 35px;
+  left:0px;
+}
+
+  
+  
+  
+  
+  
+/*------------------------------------------------------------------------------------------------------------
+    $CORE LAYOUT
+  ------------------------------------------------------------------------------------------------------------*/
+.main-content {
+  padding-top: 65px;
+}
+.example {
+  position: relative;
+  .image {
+	  width: 100%; display: inline-block; vertical-align: middle;
+  	font: 0/0 serif; text-shadow: none; color: transparent;
+  	background-size: 100%; background-position: 50% 50%; background-repeat: no-repeat;}
+  .image .inner {
+  	padding-top: 51.4%; /* height/width of image */ display: block; height: 0;}
+  h2 {
+    position: absolute; top:5%; left:5%;width: 60%; 
+    @include normal-fontItalic; font-size: 28px; line-height: 30px;}
+  h3 {
+    position: absolute; top:50%; left:5%;
+    a img{ vertical-align: middle; margin-top:-5px; margin-left: 5px;}}  
+  p {
+    position: absolute; top:40%; left:5%;
+    font-size: 14px;}}
+.example.shutterfly-case {
+  h2 {top:0;}
+  p  {top:55%;}
+  h3 {top:65%;}}
+.example.klondike-case {
+  h2 {left:30%;}
+  p  {top:45%; left:30%;}
+  h3 {top:55%; left:30%;}}
+.example.perdue-case {
+  h2 {width: 80%;}
+  p  {top:60%;}
+  h3 {top:70%;}
+}  
+.example
+
+
+
+
+  
+  
+  
+  
+/* default screen, non-retina */
+.example #shutterfly-case { background-image: url("../img/shutterfly-bg948.jpg"); }
+.example #klondike-case { background-image: url("../img/klondike-bg948.jpg"); }
+.example #perdue-case { background-image: url("../img/perdue-bg948.jpg"); }
+
+@media only screen and (max-width: 320px) {
+    /* Small screen, non-retina */
+    .example #shutterfly-case { background-image: url("../img/shutterfly-bg320.jpg"); }
+    .example #klondike-case { background-image: url("../img/klondike-bg320.jpg"); }
+    .example #perdue-case { background-image: url("../img/perdue-bg320.jpg"); }
+}
+@media only screen and (min-resolution: 2dppx) and (max-width: 320px) {
+    /* Small screen, retina */
+    .example #shutterfly-case { background-image: url("../img/shutterfly-bg320@2x.jpg"); }
+    .example #klondike-case { background-image: url("../img/klondike-bg320@2x.jpg"); }
+    .example #perdue-case { background-image: url("../img/perdue-bg320@2x.jpg"); }
+}
+@media only screen and (min-width: 321px) and (max-width: 538px) {
+    /* Medium screen, non-retina */
+    .example #shutterfly-case { background-image: url("../img/shutterfly-bg500.jpg"); }
+    .example #klondike-case { background-image: url("../img/klondike-bg500.jpg"); }
+    .example #perdue-case { background-image: url("../img/perdue-bg500.jpg"); }
+}
+@media only screen and (min-resolution: 2dppx) and (min-width: 321px) and (max-width: 538px) {
+    /* Medium screen, retina */
+    .example #shutterfly-case { background-image: url("../img/shutterfly-bg500@2x.jpg"); }
+    .example #klondike-case { background-image: url("../img/klondike-bg500@2x.jpg"); }
+    .example #perdue-case { background-image: url("../img/perdue-bg500@2x.jpg"); }
+}
+@media only screen and (min-resolution: 2dppx) and (min-width: 539px) {
+    /* Large screen, retina */
+    .example #shutterfly-case { background-image: url("../img/shutterfly-bg948@2x.jpg"); }
+    .example #klondike-case { background-image: url("../img/klondike-bg948@2x.jpg"); }
+    .example #perdue-case { background-image: url("../img/perdue-bg948@2x.jpg"); }
+}
+  
+  
+/*------------------------------------------------------------------------------------------------------------
+    $FOOTER
+  ------------------------------------------------------------------------------------------------------------*/        
